@@ -1,31 +1,28 @@
-class Person:
-    numOfPersons = 0
-
-    raiseAmount = 1.04 
-
-    def __init__(self, firstName, lastName, salary):
-        # self.age = age
-        # self.weight = weight
-        # self.height = height
+class Employee:
+    raiseAmount = 1.4
+    def __init__(self, firstName, lastName, employeeSalary):
         self.firstName = firstName
         self.lastName = lastName
-        self.salary = salary
-        # self.catch = catch
-        
-        Person.numOfPersons += 1
+        self.employeeSalary = employeeSalary
 
-    def fullname(self):
+    def fullName(self):
         return '{} {}'.format(self.firstName, self.lastName)
 
-    def employeeRaise(self):
-        self.salary = int(self.salary * self.raiseAmount)
+    def giveRaise(self):
+        self.employeeSalary = int(self.employeeSalary * self.raiseAmount)
 
-user1 =  Person("John", "Doe", 300000)
-user2 = Person("Jane", "Doe", 40000)
-Person.raiseAmount = 2.06
-user1.employeeRaise()
+    def employeeEmail(self):
+        return self.firstName + '@organization.com'
 
-print(user1.salary)
-print(Person.raiseAmount)
-print (Person.numOfPersons)
+
+employee1 = Employee('John', 'Doe', 30000)
+
+class Developer(Employee):
+    pass
+
+dev1 = Developer('James', 'Atkinson', 90000)
+print(dev1.__dict__)
+
+
+
 
